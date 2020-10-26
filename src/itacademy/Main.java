@@ -7,6 +7,7 @@ import java.util.function.Predicate;
 public class Main {
 
     public static void main(String[] args) {
+
         List<Name> nomsPropis = new ArrayList<>();
 
         Name nom1 = new Name("Marc");
@@ -21,18 +22,33 @@ public class Main {
         String firstLetter = "A";
         Integer length = 3;
 
-        printPersonsWithPredicate(nomsPropis,
-                n -> n.getFirstChar() == firstLetter.charAt(0)
-                && n.getLength() == length
-                );
+        nomsPropisWithFirstCharXAndCertainLength(nomsPropis,firstLetter,length);
+
+
     }
 
-    public static void printPersonsWithPredicate(List<Name> nomsPropis, Predicate<Name> tester) {
+    public static void nomsPropisWithFirstCharXAndCertainLength(List<Name> nomsPropis, String firstLetter, Integer length){
+
+        List<Name> sub = new ArrayList<>();
+        sub = printNamesWithPredicate(nomsPropis,
+                n -> n.getFirstChar() == firstLetter.charAt(0)
+                        && n.getLength() == length
+        );
+    }
+
+    public static void Integers(){
+
+    }
+
+    public static List<Name> printNamesWithPredicate(List<Name> nomsPropis, Predicate<Name> tester) {
+        List<Name> sub = new ArrayList<>();
         for (Name n : nomsPropis) {
             if (tester.test(n)) {
                 n.printName();
+                sub.add(n);
             }
         }
+        return sub;
     }
 
 
