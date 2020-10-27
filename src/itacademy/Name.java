@@ -8,6 +8,8 @@ public class Name {
         this.name = name;
     }
 
+    public String getName() { return name; }
+
     public void printName(){
         System.out.println(name);
     }
