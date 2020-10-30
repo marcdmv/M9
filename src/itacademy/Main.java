@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // FASE 1
         List<Name> nomsPropis = new ArrayList<>();
 
         Name nom1 = new Name("Marc");
@@ -37,6 +38,10 @@ public class Main {
 
         List<String> mesos = new ArrayList<>(Arrays.asList("Gener","Febrer","Març","Abril","Maig","Juny","Juliol","Agost","Septembre","Octubre","Novembre","Desembre"));
         printMonths(mesos);
+
+        // FASE 2
+
+
     }
 
 
@@ -120,6 +125,9 @@ public class Main {
     }
 
     public static void printMonths(List<String> mesos){
+        // Opció 1
+        mesos.forEach(mes -> System.out.print(mes + " "));
+        // Opció 2
         mesos.forEach(System.out::println);
 
     }
