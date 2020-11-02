@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import itacademy.Reverse;
 
 public class Main {
 
@@ -41,6 +42,11 @@ public class Main {
 
         // FASE 2
 
+        Pi pi = new Pi();
+        double value = pi.getPiValue(3.1415);
+        System.out.println(value);
+
+        Reverse.reverse("hola");
 
     }
 
@@ -131,4 +137,6 @@ public class Main {
         mesos.forEach(System.out::println);
 
     }
+
+
 }
