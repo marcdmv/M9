@@ -11,43 +11,63 @@ public class Main {
     public static void main(String[] args) {
 
         // FASE 1
+        System.out.println("- Fase 1");
         List<Name> nomsPropis = new ArrayList<>();
 
+        //Emplenem la llista amb noms propis
         Name nom1 = new Name("Marc");
         nomsPropis.add(nom1);
         Name nom2 = new Name("Noemi");
         nomsPropis.add(nom2);
-        Name nom3 = new Name("Aaa");
+        Name nom3 = new Name("Albert");
         nomsPropis.add(nom3);
-        Name nom4 = new Name("Alb");
+        Name nom4 = new Name("Ana");
         nomsPropis.add(nom4);
 
+        //Definim les condicions del tester
         String firstLetter = "A";
         Integer length = 3;
 
+        System.out.println("-- Punto 1");
         nomsPropisWithFirstCharXAndCertainLength(nomsPropis,firstLetter,length);
 
-
+        //Definim una llista d'Integers
         List<Integer> llista2 = new ArrayList<>(Arrays.asList(1,2,3,4,5));
 
+        System.out.println("-- Punto 2");
         llistaIntegersWithOddAndEven(llista2);
 
+        //Definim una llista de Strings
         List<String> llista3 = new ArrayList<>(Arrays.asList("eeos","wibcpwbecpqwe","pwbqopqocbwe","sdobcowiebcowiec"));
 
+        //Cridem el mètode que ens diu si tenen la lletra "o"
+        System.out.println("-- Punto 3");
         llistaStringsWithLetterO(llista3);
+        //Amb la mateixa, cridem el mètode que ens diu si a més tenen més de 5 lletres
+        System.out.println("-- Punto 4");
         llistaStringsWithMoreThanFiveLetters(llista3);
 
+        //Definim la llista de mesos i cridem el mètode printMonths
+        System.out.println("-- Punto 5");
         List<String> mesos = new ArrayList<>(Arrays.asList("Gener","Febrer","Març","Abril","Maig","Juny","Juliol","Agost","Septembre","Octubre","Novembre","Desembre"));
         printMonths(mesos);
 
         // FASE 2
 
+        System.out.println("- Fase 2");
+        //Creamos un objeto de tipo Pi. En la clase Pi se ha implementado la Functional Interface (un único método abstracto)
         Pi pi = new Pi();
-        double value = pi.getPiValue(3.1415);
+        //Llamamos el método de la clase pi getPiValue() para que nos devuelva su valor
+        double value = pi.getPiValue();
+        //Imprimimos el resultado que nos devuelve el método
         System.out.println(value);
 
         // FASE 3
-        Reverse.reverse("hola");
+        System.out.println("- Fase 3");
+        //Definimos el String
+        String texto = "Hola";
+        //Llamamos el método reverse de la clase Reverse
+        Reverse.reverse(texto);
 
     }
 
@@ -56,7 +76,6 @@ public class Main {
         List<String> sub = new ArrayList<>();
         for (Name n : nomsPropis) {
             if (tester.test(n)) {
-                //n.printName();
                 sub.add(n.getName());
             }
         }
@@ -64,12 +83,14 @@ public class Main {
     }
 
     public static void nomsPropisWithFirstCharXAndCertainLength(List<Name> nomsPropis, String firstLetter, Integer length){
-        List<String> output1 = namesWithPredicate(nomsPropis,
+        //Passem els noms propis pel tester i acabem tening una llista de Strings amb els noms que han passat la prova
+        List<String> sub = namesWithPredicate(nomsPropis,
                 n -> n.getFirstChar() == firstLetter.charAt(0)
                         && n.getLength() == length
         );
 
-        output1.forEach(System.out::println);
+        //Imprimim la llista final
+        sub.forEach(System.out::println);
     }
 
     public static List<String> integersOddEvenWithPredicate(List<Integer> llista, Predicate<Integer> tester){
@@ -88,6 +109,8 @@ public class Main {
     }
 
     public static void llistaIntegersWithOddAndEven(List<Integer> llista){
+        //Com al punt anterior, pasem cada Integer pel tester, i si és parell (even) li asignem una "e" i si
+        //es imparell (odd) li assignem una "o"
         List<String> output2 = integersOddEvenWithPredicate(llista,
                 i -> i%2 == 0
         );
@@ -133,9 +156,9 @@ public class Main {
 
     public static void printMonths(List<String> mesos){
         // Opció 1
-        mesos.forEach(mes -> System.out.print(mes + " "));
+        mesos.forEach(mes -> System.out.print(mes + "\n"));
         // Opció 2
-        mesos.forEach(System.out::println);
+        // mesos.forEach(System.out::println);
 
     }
 

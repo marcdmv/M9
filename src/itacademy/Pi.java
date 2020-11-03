@@ -5,9 +5,9 @@ public class Pi implements IPi {
 
     }
 
-    public double getPiValue(double num) {
+    public double getPiValue() {
 
-        return num;
+        return 3.1415;
     }
 
 }
